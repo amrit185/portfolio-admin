@@ -6,7 +6,7 @@ export default function Skills() {
   const [skills, setSkills] = useState([]);
   const [loading, setLoading] = useState(false);
   
-  // Form State
+
   const [name, setName] = useState('');
   const [category, setCategory] = useState('Frontend');
   const [icon, setIcon] = useState('');
@@ -32,7 +32,7 @@ export default function Skills() {
       await api.post('/skills', { name, category, icon });
       setName('');
       setIcon('');
-      fetchSkills(); // Refresh the list
+      fetchSkills(); 
     } catch (error) {
       alert('Error saving skill');
     } finally {
@@ -55,7 +55,7 @@ export default function Skills() {
     <div className="space-y-8">
       <h2 className="text-3xl font-bold text-gray-800">Manage Skills</h2>
 
-      {/* Create Form */}
+ 
       <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
         <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
           <Plus size={20} /> Add New Skill
@@ -98,7 +98,7 @@ export default function Skills() {
         </form>
       </div>
 
-      {/* Data Table */}
+
       <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
         <table className="w-full text-left">
           <thead className="bg-gray-50 border-b">
