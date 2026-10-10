@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if user is already logged in
+ 
     const userInfo = localStorage.getItem('userInfo');
     if (userInfo) {
       setUser(JSON.parse(userInfo));
