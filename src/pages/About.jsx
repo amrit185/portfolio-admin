@@ -9,7 +9,7 @@ export default function About() {
     const fetchAbout = async () => {
       try {
         const { data } = await api.get('/about');
-        if (data.name) setFormData(data); // Populate form if data exists
+        if (data.name) setFormData(data); 
       } catch (error) {
         console.error('Error fetching about:', error);
       }
