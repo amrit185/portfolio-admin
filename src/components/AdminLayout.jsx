@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-// import { LayoutDashboard, FolderKanban, Code, LogOut } from 'lucide-react';
+
 import { LayoutDashboard, FolderKanban, Code, FileText, User, LogOut } from 'lucide-react';
 
 export default function AdminLayout() {
@@ -18,7 +18,7 @@ export default function AdminLayout() {
 
   return (
     <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
+      {}
       <aside className="w-64 bg-white shadow-md flex flex-col">
         <div className="p-6 border-b">
           <h1 className="text-xl font-bold text-gray-800">CMS Admin</h1>
@@ -50,9 +50,9 @@ export default function AdminLayout() {
         </div>
       </aside>
 
-      {/* Main Content Area */}
+      
       <main className="flex-1 overflow-y-auto p-8">
-        <Outlet /> {/* This renders the current page */}
+        <Outlet /> 
       </main>
     </div>
   );
