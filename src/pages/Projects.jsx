@@ -6,13 +6,13 @@ export default function Projects() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
   
-  // Form State
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [techStack, setTechStack] = useState('');
   const [imageFile, setImageFile] = useState(null);
 
-  // Fetch Projects on load
+  
   const fetchProjects = async () => {
     try {
       const { data } = await api.get('/projects');
@@ -26,7 +26,7 @@ export default function Projects() {
     fetchProjects();
   }, []);
 
-  // Handle Form Submission
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -34,7 +34,7 @@ export default function Projects() {
     try {
       let imageUrl = '';
 
-      // 1. If an image is selected, upload it first
+     
       if (imageFile) {
         const formData = new FormData();
         formData.append('image', imageFile);
@@ -44,10 +44,10 @@ export default function Projects() {
         imageUrl = uploadRes.data.imageUrl;
       }
 
-      // 2. Format tech stack from comma-separated string to array
+  
       const techArray = techStack.split(',').map(tech => tech.trim());
 
-      // 3. Create the project
+ 
       await api.post('/projects', {
         title,
         description,
@@ -55,7 +55,7 @@ export default function Projects() {
         image: imageUrl
       });
 
-      // 4. Reset form and refresh list
+     
       setTitle('');
       setDescription('');
       setTechStack('');
@@ -68,7 +68,7 @@ export default function Projects() {
     }
   };
 
-  // Handle Delete
+
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this project?')) {
       try {
@@ -84,7 +84,7 @@ export default function Projects() {
     <div className="space-y-8">
       <h2 className="text-3xl font-bold text-gray-800">Manage Projects</h2>
 
-      {/* Create Form */}
+  
       <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
         <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
           <Plus size={20} /> Add New Project
@@ -119,7 +119,7 @@ export default function Projects() {
         </form>
       </div>
 
-      {/* Data Table */}
+   
       <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
         <table className="w-full text-left">
           <thead className="bg-gray-50 border-b">
