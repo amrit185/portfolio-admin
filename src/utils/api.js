@@ -1,11 +1,11 @@
-// src/utils/api.js
+
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api', // Pointing to your backend
+  baseURL: 'http://localhost:5000/api',
 });
 
-// Intercept requests and attach the JWT token
+
 api.interceptors.request.use((config) => {
   const userInfo = localStorage.getItem('userInfo');
   if (userInfo) {
